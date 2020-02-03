@@ -16,5 +16,3 @@ jobs:
       run: pub run build_runner build -v --delete-conflicting-outputs
     - name: Run tests
       run: pub run test
-    - name: Run tests
-      run: pub run test

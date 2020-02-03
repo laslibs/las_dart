@@ -46,21 +46,19 @@ class LasDart {
   String path;
   Future blobString;
 
-  /**
-   * Creates an instance of Las.
-   * @param {string} path - Absolute path to las file
-   * @memberof Las
-   */
+  /// Creates an instance of Las.
+  /// @param {string} path - Absolute path to las file
+  /// @memberof Las
+
   LasDart(this.path) {
     this.blobString = this.initialize();
   }
 
-  /**
-   * Returns a column in a las file
-   * @param {string} column - name of column
-   * @returns {(Future<List<dynamic>>)}
-   * @memberof Las
-   */
+  /// Returns a column in a las file
+  /// @param {string} column - name of column
+  /// @returns {(Future<List<dynamic>>)}
+  /// @memberof Las
+
   column(String column) async {
     var hds = await this.header();
     var sB = await this.data();
@@ -72,12 +70,11 @@ class LasDart {
     return sB.map((c) => c[index]).toList();
   }
 
-  /**
-   * Returns a column in a las file stripped off null values
-   * @param {string} column - name of column
-   * @returns {(Future<List<dynamic>>)}
-   * @memberof Las
-   */
+  /// Returns a column in a las file stripped off null values
+  /// @param {string} column - name of column
+  /// @returns {(Future<List<dynamic>>)}
+  /// @memberof Las
+
   Future columnStripped(String column) async {
     var hds = await this.header() as List;
 
@@ -93,12 +90,11 @@ class LasDart {
     }
   }
 
-  /**
-   * Returns a csv File object in browser | writes csv file to current working driectory in Node
-   * @param {string} filename
-   * @returns {(Future<File>)}
-   * @memberof Las
-   */
+  /// Returns a csv File object in browser | writes csv file to current working driectory in Node
+  /// @param {string} filename
+  /// @returns {(Future<File>)}
+  /// @memberof Las
+
   Future<File> toCsv({@required String filename}) async {
     try {
       var headers = await this.header();
@@ -116,12 +112,11 @@ class LasDart {
     }
   }
 
-  /**
-   * Returns a csv File object in browser and writes csv file to current working driectory in Node of data stripped of null values
-   * @param {string} filename
-   * @returns {(Future<File>)}
-   * @memberof Las
-   */
+  /// Returns a csv File object in browser and writes csv file to current working driectory in Node of data stripped of null values
+  /// @param {string} filename
+  /// @returns {(Future<File>)}
+  /// @memberof Las
+
   Future<File> toCsvStripped({@required String filename}) async {
     try {
       var headers = await this.header();
@@ -139,31 +134,28 @@ class LasDart {
     }
   }
 
-  /**
-   * Returns the number of rows in a .las file
-   * @returns number
-   * @memberof Las
-   */
+  /// Returns the number of rows in a .las file
+  /// @returns number
+  /// @memberof Las
+
   Future<num> rowCount() async {
     var l = await this.data();
     return l.length;
   }
 
-  /**
-   * Returns the number of columns in a .las file
-   * @returns number
-   * @memberof Las
-   */
+  /// Returns the number of columns in a .las file
+  /// @returns number
+  /// @memberof Las
+
   Future<num> columnCount() async {
     var l = await this.header();
     return l.length;
   }
 
-  /**
-   * Returns a two-dimensional array of data in the log
-   * @returns {(Future<List<List<dynamic>>>)}
-   * @memberof Las
-   */
+  /// Returns a two-dimensional array of data in the log
+  /// @returns {(Future<List<List<dynamic>>>)}
+  /// @memberof Las
+
   data() async {
     try {
       var s = await this.blobString;
@@ -187,11 +179,10 @@ class LasDart {
     }
   }
 
-  /**
-   * Returns a two-dimensional array of data in the log with all rows containing null values stripped off
-   * @returns {(Future<List<List<dynamic>>>)}
-   * @memberof Las
-   */
+  /// Returns a two-dimensional array of data in the log with all rows containing null values stripped off
+  /// @returns {(Future<List<List<dynamic>>>)}
+  /// @memberof Las
+
   dataStripped() async {
     var s = await this.blobString;
     var hds = await this.header();
@@ -228,31 +219,28 @@ class LasDart {
     return conTwo.toSet().toList();
   }
 
-  /**
-   * Returns the version number of the las file
-   * @returns {Future<num>}
-   * @memberof Las
-   */
+  /// Returns the version number of the las file
+  /// @returns {Future<num>}
+  /// @memberof Las
+
   Future<num> version() async {
     var v = await this.metadata();
     return v[0];
   }
 
-  /**
-   * Returns true if the las file is of wrapped variant and false otherwise
-   * @returns {Future<bool>}
-   * @memberof Las
-   */
+  /// Returns true if the las file is of wrapped variant and false otherwise
+  /// @returns {Future<bool>}
+  /// @memberof Las
+
   Future<bool> wrap() async {
     var v = await this.metadata();
     return v[1];
   }
 
-  /**
-   * Returns an extra info about the well stored in ~others section
-   * @returns {Future<string>}
-   * @memberof Las
-   */
+  /// Returns an extra info about the well stored in ~others section
+  /// @returns {Future<string>}
+  /// @memberof Las
+
   Future<String> other() async {
     var s = await this.blobString;
     var som = (s as String).split(RegExp(r"~O(?:\w*\s*)*\n\s*i"))[1];
@@ -268,11 +256,10 @@ class LasDart {
     return str;
   }
 
-  /**
-   * Returns an array of strings of the logs header/title
-   * @returns {Future<List<String>>}
-   * @memberof Las
-   */
+  /// Returns an array of strings of the logs header/title
+  /// @returns {Future<List<String>>}
+  /// @memberof Las
+
   header() async {
     var s = await this.blobString;
     var sth =
@@ -288,12 +275,11 @@ class LasDart {
         .toList();
   }
 
-  /**
-   * Returns an object, each well header and description as a key-value pair
-   * @returns {Future<Map>}
-   * asJson: true @returns {Future<String>}
-   * @memberof Las
-   */
+  ///Returns an object, each well header and description as a key-value pair
+  ///@returns {Future<Map>}
+  ///asJson: true @returns {Future<String>}
+  ///@memberof Las
+
   headerAndDescr({bool asJson = false}) async {
     Map cur = {};
 
@@ -329,41 +315,36 @@ class LasDart {
     return asJson ? jsonPretty(cur) : cur;
   }
 
-  /**
-   * Returns details of  well parameters.
-   * @returns {Future<WellProps>}
-   * @memberof Las
-   */
+  /// Returns details of  well parameters.
+  /// @returns {Future<WellProps>}
+  /// @memberof Las
+
   Future<List<WellProps>> wellParams() async {
     (await this.property('well'));
     return props;
   }
 
-  /**
-   * Returns details of  curve parameters.
-   * @returns {  Future<List<WellProps>>}
-   * @memberof Las
-   */
+  /// Returns details of curve parameters.
+  /// @returns {  Future<List<WellProps>>}
+  /// @memberof Las
+
   Future<List<WellProps>> curveParams() async {
     (await this.property('curve'));
     return props;
   }
 
-  /**
-   * Returns details of  parameters of the well.
-   * @returns {Future<List<WellProps>>}
-   * @memberof Las
-   */
+  /// Returns details of parameters of the well.
+  /// @returns {Future<List<WellProps>>}
+  /// @memberof Las
+
   Future<List<WellProps>> logParams() async {
     (await this.property('param'));
     return props;
   }
 
-  /**
-   * Returns details of  metadata .
-   * @returns {Future<[num,bool]>}
-   * @memberof Las
-   */
+  ///Returns details of  metadata .
+  ///@returns {Future<[num,bool]>}
+  ///@memberof Las
 
   Future metadata() async {
     var str = await this.blobString;

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 jsonPretty(Object obj) {
-  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+  JsonEncoder encoder = JsonEncoder.withIndent('  ');
   String prettyprint = encoder.convert(obj);
   return prettyprint;
 }

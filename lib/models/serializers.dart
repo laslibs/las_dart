@@ -5,11 +5,8 @@ import 'package:built_value/standard_json_plugin.dart';
 
 import 'well_props.dart';
 
-
 part 'serializers.g.dart';
 
-@SerializersFor([
-  WellProps
-])
+@SerializersFor([WellProps])
 final Serializers serializers =
     (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

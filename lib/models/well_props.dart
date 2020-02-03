@@ -17,7 +17,7 @@ abstract class WellProps implements Built<WellProps, WellPropsBuilder> {
   @nullable
   @BuiltValueField(wireName: 'unit')
   String get unit;
-  
+
   @nullable
   @BuiltValueField(wireName: 'key')
   String get key;
