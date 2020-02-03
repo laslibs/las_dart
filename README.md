@@ -455,11 +455,6 @@ print(other)
 
 - Export to CSV
 
-  
-
-### For node, this writes a csv file to the current working directory, with headers of the well and data section only for node. For browser, this returns a File Blob, that can be downloaded by using _URL.createObjectURL_
-
-  
 
 ```dart
 
