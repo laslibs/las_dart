@@ -1,7 +1,7 @@
 name: las_dart
-description: zero-dependency JavaScript library for parsing .Las file (Geophysical well log files)
+description: zero-dependency Dart library for parsing .Las file (Geophysical well log files)
 version: 0.1.0
-homepage: https://github.com/laslibs/las-dart
+homepage: https://github.com/laslibs/las_dart
 
 environment:
   sdk: ">=2.6.0-dev <3.0.0"

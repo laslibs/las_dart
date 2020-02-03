@@ -15,7 +15,7 @@
 
   
 
-# LasDart is a zero-dependency JavaScript library for parsing .Las file (Geophysical well log files).
+# LasDart is a zero-dependency Dart library for parsing .Las file (Geophysical well log files).
 
   
 
