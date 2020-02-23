@@ -1,21 +1,6 @@
-
-![](https://github.com/laslibs/las-js/workflows/Node%20CI/badge.svg?)
-
-![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/las-js?style=flat-square)
-
-![npm type definitions](https://img.shields.io/npm/types/las-js?style=flat-square)
-
-![npm bundle size](https://img.shields.io/bundlephobia/minzip/las-js?style=flat-square)
-
-![GitHub issues](https://img.shields.io/github/issues/iykekings/las-js?style=flat-square)
-
-![NPM](https://img.shields.io/npm/l/las-js?style=flat-square)
-
-![npm](https://img.shields.io/npm/v/las-js?style=flat-square)
-
   
 
-# LasDart is a zero-dependency Dart library for parsing .Las file (Geophysical well log files).
+# LasDart is a Dart library for parsing .Las file (Geophysical well log files).
 
   
 
